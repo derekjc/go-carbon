@@ -29,6 +29,9 @@ jobs:
       -
         name: Available platforms
         run: echo ${{ steps.buildx.outputs.platforms }}
-
-      - name: Build the Docker image
+      -
+        name: Docker Login
+        run: docker login https://docker.pkg.github.com -u USERNAME --password-stdin -p $DOCKER_TOKEN
+      - 
+        name: Build the Docker image
         run: docker buildx build --push --platform linux/arm64/v8,linux/amd64 -t docker.pkg.github.com/derekjc/go-carbon/go-carbon:latest .
