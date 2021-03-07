@@ -28,4 +28,4 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
 
       - name: Build the Docker image
-        run: docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 -t docker.pkg.github.com/derekjc/go-carbon/go-carbon:latest .
+        run: docker buildx build --push --platform linux/arm64/v8,linux/amd64 -t docker.pkg.github.com/derekjc/go-carbon/go-carbon:latest .
