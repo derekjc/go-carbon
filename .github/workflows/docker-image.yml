@@ -31,7 +31,7 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
       -
         name: Docker Login
-        run: docker login https://docker.pkg.github.com -u derekjc --password-stdin -p $DOCKER_TOKEN
+        run: docker login https://docker.pkg.github.com -u derekjc -p $DOCKER_TOKEN
         env:
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
       - 
