@@ -28,6 +28,7 @@ RUN \
 
 # ------------------------------ RUN IMAGE --------------------------------------
 FROM alpine:3.13.2
+LABEL org.opencontainers.image.source https://github.com/derekjc/go-carbon
 
 COPY --from=builder /tmp/go-carbon                         /usr/bin/go-carbon
 

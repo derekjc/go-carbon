@@ -5,9 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +29,8 @@ jobs:
         run: echo ${{ steps.buildx.outputs.platforms }}
       -
         name: Docker Login
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        run: echo "${{ secrets.GH_PASS }}" | docker login https://ghcr.io -u "${{ secrets.GH_USER }}" --password-stdin
       - 
         name: Build the Docker image
-        run: docker buildx build --push --platform linux/arm64/v8,linux/amd64 -t derekjc/go-carbon:latest .
+        run: docker buildx build --push --platform linux/arm64/v8,linux/amd64 -t ghcr.io/derekjc/go-carbon:latest .
+
